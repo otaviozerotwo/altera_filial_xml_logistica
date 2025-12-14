@@ -1,0 +1,21 @@
+{
+  "name": "alter_filial_logistica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "dotenv": "^17.2.3",
+    "electron": "^39.2.7"
+  },
+  "dependencies": {
+    "mssql": "^12.2.0",
+    "xml2js": "^0.6.2"
+  }
+}

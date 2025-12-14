@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'"
+  />
+  <meta
+    http-equiv="X-Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'"
+  />
+  <title>Altera Filial Gestão Logística</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="titleBar"></div>
+  <header class="header">
+    <div class="container">
+      <h1 class="header__title">CONFIGURAÇÃO DE TERMINAL</h1>
+    </div>
+  </header>
+  <main>
+    <form class="form">
+      <label class="form__title">Selecione a Filial Polo</label>
+      <select id="formSelect" class="form__selection"></select>
+      <div class="form__buttons">
+        <button type="submit" class="button" id="saveButton">Salvar configuração</button>
+        <button type="button" class="button" id="closeButton">Cancel</button>
+      </div>
+    </form>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+</html>
