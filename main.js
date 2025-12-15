@@ -63,7 +63,7 @@ ipcMain.handle('processar-opcao', async (event, dados) => {
       rzFilial: dados.rzFilial
     });
   
-    // shortcutService.executarPrograma();
+    shortcutService.executarPrograma();
   
     if (mainWindow) mainWindow.close();
     
