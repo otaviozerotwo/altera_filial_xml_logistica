@@ -1,10 +1,14 @@
-const { exec } = require('child_process');
-const os = require('os');
-const path = require('path');
-
-const USERNAME = os.userInfo().username;
-const SHORTCUT_PATH= path.join('C:', 'Users', USERNAME, 'Desktop', 'AnyDesk.exe'); // TODO: inserir atalho do Gestão Logistica
+const { spawn } = require('child_process');
+const javaService = require('./java.service');
 
 exports.executarPrograma = () => {
-  exec(`"${SHORTCUT_PATH}"`);
+  const javaws = javaService.getJavaWsPath();
+
+  spawn(javaws, [
+    'http://192.0.1.11:8081/vendas-server/app/logistica-client.jnlp'
+  ], {
+    detached: true,
+    stdio: 'ignore'
+  }).unref();
 };
+

@@ -7,7 +7,7 @@ const USERNAME = os.userInfo().username;
 const XML_PATH = path.join('C:', 'Users', USERNAME, 'Itecbrazil', 'logistica.xml');
 
 exports.editarXml = async ({ cdFilial, cnpj, rzFilial }) => {
-  console.log('Dados recebidos no XML:', { cdFilial, cnpj, rzFilial });
+  console.log('Dados recebidos no XML:', { cdFilial, cnpj, rzFilial }); // TODO: tratar CNPJ (retirar pontos e barra)
   
   const xml = fs.readFileSync(XML_PATH);
   const json = await xml2js.parseStringPromise(xml);
