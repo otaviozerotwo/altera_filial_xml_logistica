@@ -4,7 +4,7 @@ const closeButton = document.getElementById('closeButton');
 
 window.api.buscarOpcoes().then(resposta => {
   if (resposta.sucesso === false) {
-    alert(resposta.mensagem);
+    console.error(resposta.mensagem);
     return;
   }
   
@@ -32,7 +32,7 @@ saveButton.onclick = async () => {
   });
 
   if (!resultado.sucesso) {
-    alert('Erro: ' + resultado.message);
+    console.error('Erro: ' + resultado.message);
   }
 };
 
