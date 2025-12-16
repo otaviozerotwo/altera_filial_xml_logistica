@@ -1,5 +1,15 @@
+const path = require('path');
+const dotenv = require('dotenv');
+
+const isProduction = process.env.NODE_ENV === 'production';
+
+const envPath = isProduction
+  ? path.join(process.resourcesPath, '.env')
+  : path.join(__dirname, '.env');
+
+dotenv.config({ path: envPath });
+
 const { app, BrowserWindow, Menu, ipcMain, dialog } = require('electron');
-require('dotenv').config();
 
 const dbService = require('./src/services/db.service');
 const xmlService = require('./src/services/xml.service');

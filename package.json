@@ -7,7 +7,9 @@
     "dev": "electron .",
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "clean": "Remove-Item -Recurse -Force out\\",
+    "build-and-install": "npm run clean && npm run package && npm run make"
   },
   "keywords": [],
   "author": "",
