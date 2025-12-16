@@ -8,7 +8,7 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "clean": "Remove-Item -Recurse -Force out\\",
+    "clean": "rmdir /s /q .\\out",
     "build-and-install": "npm run clean && npm run package && npm run make"
   },
   "keywords": [],
