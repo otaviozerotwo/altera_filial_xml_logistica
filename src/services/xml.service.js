@@ -1,10 +1,8 @@
 const fs = require('fs');
 const xml2js = require('xml2js');
-const os = require('os');
-const path = require('path');
+const generateXmlPath = require('../utils/generateXmlPath');
 
-const USERNAME = os.userInfo().username;
-const XML_PATH = path.join('C:', 'Users', USERNAME, 'Itecbrazil', 'logistica.xml');
+const XML_PATH = generateXmlPath.generateXmlPath();
 
 exports.editarXml = async ({ cdFilial, cnpj, rzFilial }) => {
   console.log('Dados recebidos no XML:', { cdFilial, cnpj, rzFilial }); // TODO: tratar CNPJ (retirar pontos e barra)
