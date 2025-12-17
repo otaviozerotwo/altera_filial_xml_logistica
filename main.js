@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const dotenv = require('dotenv');
 
@@ -69,11 +70,35 @@ ipcMain.handle('processar-opcao', async (event, dados) => {
   console.log('Dados recebidos no main:', dados);
   
   try {
-    await xmlService.editarXml({
-      cdFilial: dados.cdFilial,
-      cnpj: dados.cnpj,
-      rzFilial: dados.rzFilial
-    });
+    const XML_PATH = require('./src/utils/generateXmlPath').generateXmlPath();
+
+    if (!fs.existsSync(XML_PATH)) {
+      const resposta = await dialog.showMessageBox(mainWindow, {
+        type: 'warning',
+        title: 'Arquivo não encontrado',
+        message: 'Arquivo de configuração não encontrado. Deseja criá-lo?',
+        buttons: ['Sim', 'Não'],
+        defaultId: 0,
+        cancelId: 1
+      });
+
+      if (resposta.response === 0) {
+        await xmlService.criarXml({
+          cdFilial: dados.cdFilial,
+          cnpj: dados.cnpj,
+          rzFilial: dados.rzFilial
+        });
+      } else {
+        app.quit();
+        return { sucesso: false, message: 'Operação cancelada pelo usuário.' };
+      }
+    } else {
+      await xmlService.editarXml({
+        cdFilial: dados.cdFilial,
+        cnpj: dados.cnpj,
+        rzFilial: dados.rzFilial
+      });
+    }
   
     shortcutService.executarPrograma();
   
