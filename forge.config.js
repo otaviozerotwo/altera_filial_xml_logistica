@@ -18,7 +18,8 @@ module.exports = {
         authors: 'Otávio Cardoso',
         setupExe: 'LauncherLogisticaSetup.exe',
         setupIcon: 'assets/icon.ico',
-        iconUrl: 'https://servidor-imagens.vercel.app/icon.ico'
+        iconUrl: 'https://servidor-imagens.vercel.app/icon.ico',
+        loadingGif: 'assets/splash.gif'
       },
     },
     {

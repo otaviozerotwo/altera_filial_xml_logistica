@@ -36,11 +36,11 @@ const createWindow = () => {
 }
 
 app.whenReady().then(async () => {
-  createWindow();
-
   try {
     await dbService.testarConexao();
     console.log('Conexão com o banco de dados bem-sucedida.');
+    
+    createWindow();
   } catch (error) {
     console.error('Erro ao conectar ao banco de dados:', error);
     await dialog.showMessageBox({
