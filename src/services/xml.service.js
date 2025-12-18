@@ -4,6 +4,9 @@ const generateXmlPath = require('../utils/generateXmlPath');
 
 const XML_PATH = generateXmlPath.generateXmlPath();
 
+const url = process.env.URL_TELEVENDAS.split('/').slice(0, 3).join('/');
+console.log(url);
+
 exports.criarXml = async ({ cdFilial, cnpj, rzFilial }) => {
   console.log('Criando novo arquivo XML com os dados:', { cdFilial, cnpj, rzFilial });
 
@@ -20,7 +23,7 @@ exports.criarXml = async ({ cdFilial, cnpj, rzFilial }) => {
           vlrVendDesc: ['0.0'],
           percDescVenda: ['0.0'],
           blqDescPgtoPrazo: ['0'],
-          senhaUsuPharmaLink: ['1166941951'],
+          senhaUsuPharmaLink: ['0000000000'],
           uf: ['MG'],
           numero: ['S/N'],
           cdRota: [''],
@@ -35,7 +38,7 @@ exports.criarXml = async ({ cdFilial, cnpj, rzFilial }) => {
       timeOut: ['30000'],
       connectTimeout: ['15000'],
       readTimeout: ['60000'],
-      servidorInicalizacao: ['192.0.1.11:8081'], // TODO: pegar da variável URL_TELEVENDAS
+      servidorInicalizacao: [String(url)], 
       cdEmp: ['1'],
       checkOut: ['false'],
       quantidadeVias: ['1'],
@@ -46,7 +49,7 @@ exports.criarXml = async ({ cdFilial, cnpj, rzFilial }) => {
       televendas: ['false'],
       hosts: [
         {
-          string: ['192.0.1.11:8081'], // TODO: pegar da variável URL_TELEVENDAS
+          string: [String(url)], 
         },
       ],
       timeZone: ['America/Sao_Paulo'],
