@@ -4,8 +4,8 @@ const generateXmlPath = require('../utils/generateXmlPath');
 
 const XML_PATH = generateXmlPath.generateXmlPath();
 
-const url = process.env.URL_TELEVENDAS.split('/').slice(0, 3).join('/');
-console.log(url);
+const url = new URL(process.env.URL_TELEVENDAS);
+const hostPort = url.host;
 
 exports.criarXml = async ({ cdFilial, cnpj, rzFilial }) => {
   console.log('Criando novo arquivo XML com os dados:', { cdFilial, cnpj, rzFilial });
@@ -38,7 +38,7 @@ exports.criarXml = async ({ cdFilial, cnpj, rzFilial }) => {
       timeOut: ['30000'],
       connectTimeout: ['15000'],
       readTimeout: ['60000'],
-      servidorInicalizacao: [String(url)], 
+      servidorInicalizacao: [String(hostPort)], 
       cdEmp: ['1'],
       checkOut: ['false'],
       quantidadeVias: ['1'],
@@ -49,7 +49,7 @@ exports.criarXml = async ({ cdFilial, cnpj, rzFilial }) => {
       televendas: ['false'],
       hosts: [
         {
-          string: [String(url)], 
+          string: [String(hostPort)], 
         },
       ],
       timeZone: ['America/Sao_Paulo'],
