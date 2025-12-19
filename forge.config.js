@@ -11,18 +11,36 @@ module.exports = {
   },
   rebuildConfig: {},
   makers: [
+    // {
+    //   name: '@electron-forge/maker-squirrel',
+    //   config: {
+    //     name: 'AlterFilialLogistica',
+    //     authors: 'Otávio Cardoso',
+    //     setupExe: 'LauncherLogisticaSetup.exe',
+    //     setupIcon: 'assets/icon.ico',
+    //     iconUrl: 'https://servidor-imagens.vercel.app/icon.ico',
+    //     loadingGif: 'assets/splash.gif'
+    //   },
+    // }, 
     {
-      name: '@electron-forge/maker-squirrel',
+      name: '@electron-forge/maker-nsis',
       config: {
-        name: 'AlterFilialLogistica',
-        authors: 'Otávio Cardoso',
-        setupExe: 'LauncherLogisticaSetup.exe',
-        setupIcon: 'assets/icon.ico',
-        iconUrl: 'https://servidor-imagens.vercel.app/icon.ico',
-        loadingGif: 'assets/splash.gif'
+        oneClick: false, // instalador passo-a-passo
+        perMachine: true, // instala para todos os usuários
+        allowToChangeInstallationDirectory: true,
+
+        shortcutName: 'Gestão Logística',
+        uninstallDisplayName: 'Gestão Logística',
+
+        installerIcon: './assets/icon.ico',
+        uninstallerIcon: './assets/icon.ico',
+
+        createDesktopShortcut: true,
+        createStartMenuShortcut: true,
+        startMenuFolderName: 'Gestão Logística',
+
+        runAfterFinish: true, // opção "Executar ao finalizar"
       },
-    },
-    {
       name: '@electron-forge/maker-zip',
       platforms: ['darwin'],
     },
