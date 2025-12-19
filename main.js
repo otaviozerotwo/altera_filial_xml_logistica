@@ -24,6 +24,7 @@ const createWindow = () => {
     height: 250,
     resizable: false,
     minimizable: false,
+    roundedCorners: false,
     titleBarStyle: 'hidden',
     ...(process.platform !== 'darwin' ? { titleBarOverlay: true } : {}),
     webPreferences: {
