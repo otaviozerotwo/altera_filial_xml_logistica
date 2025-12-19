@@ -26,7 +26,10 @@ const createWindow = () => {
     minimizable: false,
     roundedCorners: false,
     titleBarStyle: 'hidden',
-    ...(process.platform !== 'darwin' ? { titleBarOverlay: true } : {}),
+    titleBarOverlay : {
+      color: '#78BEE2',
+      symbolColor: '#000',
+    },
     webPreferences: {
       preload: __dirname + '/preload.js'
     }
