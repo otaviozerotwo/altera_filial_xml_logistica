@@ -2,6 +2,7 @@
   "name": "setup-logistica-config",
   "version": "1.0.0",
   "description": "Launcher para alterar filial do sistema de Gestão Logística",
+  "author": "Otávio Cardoso",
   "main": "main.js",
   "scripts": {
     "dev": "electron .",
@@ -12,7 +13,6 @@
     "build-and-install": "npm run clean && npm run package && npm run make"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
@@ -41,9 +41,8 @@
       "artifactName": "setup-logistica-config-${version}.exe"
     },
     "win": {
-      "target": [
-        "nsis"
-      ]
+      "target": ["nsis"],
+      "publisherName": "Otávio Cardoso"
     }
   }
 }
