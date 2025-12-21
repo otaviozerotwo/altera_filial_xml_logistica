@@ -37,11 +37,11 @@ O propósito desta aplicação é automatizar e padronizar o processo de troca d
 - Permitir selecionar uma filial e confirmar a ação
 
 - Editar automaticamente as seguintes tags do arquivo XML:
-```bash
-<cdFilial>
-<cnpj>
-<rzFilial>
-```
+  ```bash
+  <cdFilial>
+  <cnpj>
+  <rzFilial>
+  ```
 - Salvar o arquivo XML após a edição
 
 - Executar automaticamente o sistema Gestão Logística após a alteração
